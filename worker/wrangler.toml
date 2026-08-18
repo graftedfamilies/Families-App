@@ -1,0 +1,23 @@
+name = "grafted-forms"
+main = "gravity-forms-worker.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+# Your Supabase project URL (same as the app's VITE_SUPABASE_URL)
+SUPABASE_URL = "https://YOUR-ref.supabase.co"
+
+# Your live app origin, used for CORS. Use "*" only while testing locally.
+ALLOWED_ORIGIN = "https://grafted-families.pages.dev"
+
+# WordPress site that hosts Gravity Forms
+GF_SITE = "https://helponechild.org"
+
+# Maps each app form type to its Gravity Forms IDs. Fill these in once you
+# know your form + field IDs (see WORKER_SETUP.md). Example shape:
+# {"connect":{"formId":3,"emailFieldId":5,"fieldMap":{"first_name":1,"last_name":2,"location":6}}}
+GF_FORM_MAP = "{}"
+
+# Secrets are NOT set here. Run:
+#   wrangler secret put SUPABASE_SERVICE_ROLE_KEY
+#   wrangler secret put GF_API_KEY
+#   wrangler secret put GF_API_SECRET
