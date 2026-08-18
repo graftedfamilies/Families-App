@@ -11,16 +11,6 @@ export default function Events({ onOpenModal }) {
 
       <MyRegistrations />
 
-      <div className="camp-banner">
-        <div className="kicker">⭐ Featured · Family Camp 2026</div>
-        <h2>Rest among the Redwoods</h2>
-        <p>A weekend of family connection, parent respite, and fun for every age at Redwood Christian Park.</p>
-        <div className="camp-detail">📅 July 31 – August 2, 2026</div>
-        <div className="camp-detail">📍 Redwood Christian Park, Santa Cruz Mountains</div>
-        <div className="camp-detail">💰 $100/person · Scholarships available</div>
-        <button className="btn btn-accent" style={{ marginTop: 16, fontWeight: 800 }} onClick={() => onOpenModal('camp')}>Join Waitlist →</button>
-      </div>
-
       {events.map((group) => (
         <div key={group.month}>
           <div className="event-month-header">{group.month}</div>
