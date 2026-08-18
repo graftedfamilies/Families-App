@@ -1,0 +1,17 @@
+name: Nightly rebuild (content sync)
+
+on:
+  schedule:
+    - cron: '0 9 * * *'    # 09:00 UTC every day
+  workflow_dispatch:        # adds a "Run workflow" button for manual tests
+
+jobs:
+  trigger-rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages deploy hook
+        run: |
+          if [ -z "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}" ]; then
+            echo "CLOUDFLARE_DEPLOY_HOOK secret is not set"; exit 1
+          fi
+          curl -fsS -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}"
